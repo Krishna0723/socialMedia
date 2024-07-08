@@ -6,11 +6,10 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 
+const env = require("dotenv");
+env.config();
 mongoose.set("strictQuery", true);
-mongoose.connect(
-  "mongodb+srv://purnasaikrishnainnamuri23:12345@cluster0.savpbt3.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-//   "mongodb+srv://nexHome:12345@cluster0.uqfgbkh.mongodb.net/nexHome?retryWrites=true&w=majority"
-);
+mongoose.connect(process.env.dbString);
 
 var db = mongoose.connection;
 
